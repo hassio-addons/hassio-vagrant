@@ -1,0 +1,16 @@
+---
+engines:
+  markdownlint:
+    enabled: true
+  rubocop:
+    enabled: true
+  shellcheck:
+    enabled: true
+ratings:
+  paths:
+  - "**.md"
+  - "**.sh"
+  - "Vagrantfile"
+exclude_paths: [
+  ".vagrant/**"
+]
