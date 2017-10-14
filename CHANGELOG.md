@@ -9,5 +9,12 @@ and this project adheres to [Semantic Versioning][semantic-versioning].
 
 There are currently no unreleased changes.
 
+## [v0.0.1] (2017-10-14)
+
+### Added
+
+- Initial version, first release.
+
 [keep-a-changelog]: http://keepachangelog.com/en/1.0.0/
 [semantic-versioning]: http://semver.org/spec/v2.0.0.html
+[v0.0.1]: https://github.com/hassio-addons/hassio-vagrant/tree/v0.0.1
