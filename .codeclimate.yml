@@ -12,5 +12,10 @@ ratings:
   - "**.sh"
   - "Vagrantfile"
 exclude_paths: [
-  ".vagrant/**"
+  ".vagrant/**",
+  "addons/**",
+  "backup/**",
+  "config/**",
+  "share/**",
+  "ssl/**",
 ]
