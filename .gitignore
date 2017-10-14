@@ -1,0 +1,8 @@
+.vagrant/*
+addons/*
+backup/*
+config/*
+share/*
+ssl/*
+*.log
+!.gitkeep

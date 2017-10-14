@@ -1,0 +1,12 @@
+---
+memory: 2048
+cpus: 2
+hostname: hassio
+post_up_message: Hass.io starting... wait a couple of minutes!
+box: ubuntu/xenial64
+shares:
+  addons: /usr/share/hassio/addons/local
+  backup: /usr/share/hassio/backup
+  config: /usr/share/hassio/homeassistant
+  share: /usr/share/hassio/share
+  ssl: /usr/share/hassio/ssl
