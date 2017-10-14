@@ -262,7 +262,7 @@ SOFTWARE.
 [contributors]: https://github.com/hassio-addons/hassio-vagrant/graphs/contributors
 [discord]: https://discord.gg/c5DvZ4e
 [downloads-shield]: https://img.shields.io/github/downloads/hassio-addons/hassio-vagrant/total.svg
-[forums]: https://community.home-assistant.io/t/repository-community-hass-io-add-ons/24705?u=frenck
+[forums]: https://community.home-assistant.io/t/hass-io-on-vagrant-virtualbox-for-testing-add-on-development/29612?u=frenck
 [frenck]: https://github.com/frenck
 [home-assistant]: https://home-assistant.io/
 [issue]: https://github.com/hassio-addons/hassio-vagrant/issues
