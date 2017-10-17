@@ -7,7 +7,9 @@ and this project adheres to [Semantic Versioning][semantic-versioning].
 
 ## Unreleased
 
-There are currently no unreleased changes.
+### Fixed
+
+- Vagrant plugin `vagrant-triggers` not installed automatically [#1][1] ([mihalski][])
 
 ## [v0.0.1] (2017-10-14)
 
@@ -15,6 +17,8 @@ There are currently no unreleased changes.
 
 - Initial version, first release.
 
+[1]: https://github.com/hassio-addons/hassio-vagrant/issues/1
 [keep-a-changelog]: http://keepachangelog.com/en/1.0.0/
+[mihalski]: https://github.com/mihalski
 [semantic-versioning]: http://semver.org/spec/v2.0.0.html
 [v0.0.1]: https://github.com/hassio-addons/hassio-vagrant/tree/v0.0.1
