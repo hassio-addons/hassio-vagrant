@@ -68,11 +68,11 @@ module HassioCommunityAddons
       return if ::Vagrant.has_plugin?('vagrant-triggers')
 
       print "A required vagrant plugin is missing: vagrant-triggers\n"
-      confirm 'Shall I go ahead an install it?', true unless raise \
-        ::Vagrant::Errors::VagrantError.new, 'Required plugin missing.'
+      raise ::Vagrant::Errors::VagrantError.new, 'Required plugin missing.' \
+        unless confirm 'Shall I go ahead an install it?', true
 
-      system 'vagrant plugin install vagrant-triggers' unless raise \
-        ::Vagrant::Errors::VagrantError.new, 'Installation of plugin failed.'
+      raise ::Vagrant::Errors::VagrantError.new, 'Installation of failed' \
+        unless system 'vagrant plugin install vagrant-triggers'
 
       print "Restarting Vagrant to re-load plugin changes...\n"
       system 'vagrant ' + ARGV.join(' ')
