@@ -36,7 +36,7 @@ get a console into their running add-on to allow for easy debugging issues.
 
 ### netdata
 
-netdata allow you to monitor your Docker containers (of which Hass.io consists).
+netdata allow you to monitor your Docker containers (which Hass.io consists of).
 Simple. Effective. Awesome!
 
 Unparalleled insights, in real-time, of everything happening on your systems,
@@ -56,16 +56,17 @@ to be honest, Google Chrome eats more memory these days.
 This setup is tested on MacOS but should work fine on Linux as well. Windows
 might work, but is not tested (please let us know!).
 
-When following the installation instructions of the tools in the following
-chapter, please be sure to check the system requirements of each of those
-tools.
+When following the installation instructions of the tools mentioned in the
+following chapter, please be sure to check the system requirements of each of
+those tools.
 
 ## Getting started
 
 Before launching your Hass.io environment, you must install
 [VirtualBox][virtualbox] 5.1 or higher, as well as [Vagrant][vagrant] 1.9.0 or
 higher. These software packages provide easy-to-use visual installers for
-all popular operating systems and are open source.
+all popular operating systems and are open source. We also require a Vagrant
+plugin; `vagrant-triggers`, which is installed automatically on first use.
 
 Once [VirtualBox][virtualbox] and [Vagrant][vagrant] have been installed, you
 install `hassio-vagrant` by simply cloning this repository. Consider cloning
@@ -88,7 +89,7 @@ branch may not always be stable. You can find the latest stable version on the
 cd hassio
 
 # Checkout the desired release
-git checkout v0.0.1
+git checkout v0.0.2
 ````
 
 Once you have cloned the `hassio-vagrant` repository, you can use the following
@@ -98,7 +99,7 @@ command to start Hass.io:
 vagrant up hassio
 ```
 
-After 10 minutes or so, the process would finish and the following messages
+After 10 minutes or so, the process should finish and the following messages
 will appear on your screen:
 
 ```txt
@@ -133,7 +134,7 @@ will appear on your screen:
 Note: _The links and IP addresses are examples, yours may differ and change
 each time you run this virtual machine_
 
-## Managing the Virtual machine
+## Managing the virtual machine
 
 If you followed the above procedure, you have got Hass.io up and running.
 But there may be a time where you need to shut it down, start up again or
@@ -170,7 +171,7 @@ to the Docker host:
 vagrant ssh hassio
 ```
 
-## Shared folder
+## Shared folders
 
 After starting the Hass.io virtual machine, some folders on your harddrive
 will be made available. These are shared folders with your Hass.io virtual
