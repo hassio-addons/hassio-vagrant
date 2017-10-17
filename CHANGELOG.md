@@ -29,3 +29,4 @@ No unreleased changes yet.
 [semantic-versioning]: http://semver.org/spec/v2.0.0.html
 [v0.0.1-v0.0.2]: https://github.com/hassio-addons/hassio-vagrant/compare/v0.0.1...v0.0.2
 [v0.0.1]: https://github.com/hassio-addons/hassio-vagrant/tree/v0.0.1
+[v0.0.2]: https://github.com/hassio-addons/hassio-vagrant/tree/v0.0.2
