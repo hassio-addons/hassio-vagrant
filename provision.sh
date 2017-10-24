@@ -20,11 +20,13 @@ readonly DOCKER_DOWNLOAD="https://download.docker.com/linux"
 readonly NETDATA_INSTALLER="https://my-netdata.io/kickstart-static64.sh"
 readonly APT_REQUIREMENTS=(
     apt-transport-https
+    avahi-daemon
     ca-certificates
     curl
-    software-properties-common
-    socat
+    dbus
     jq
+    socat
+    software-properties-common
 )
 
 # ==============================================================================
