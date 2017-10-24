@@ -7,7 +7,10 @@ and this project adheres to [Semantic Versioning][semantic-versioning].
 
 ## Unreleased
 
-No unreleased changes yet.
+### Added
+
+- D-Bus to host system
+- Avahi to host system
 
 ## [v0.0.2] (2017-10-17)
 
