@@ -1,13 +1,20 @@
 # Community Hass.io Add-ons: Vagrant
 
+[![GitHub Release][releases-shield]][releases]
 ![Project Stage][project-stage-shield]
-![Maintenance][maintenance-shield]
-![Awesome][awesome-shield]
+![Project Maintenance][maintenance-shield]
+[![GitHub Activity][commits-shield]][commits]
 [![License][license-shield]](LICENSE.md)
 
 [![Code Climate][codeclimate-shield]][codeclimate]
-[![GitHub Release][releases-shield]][releases]
-![GitHub Downloads][downloads-shield]
+[![Bountysource][bountysource-shield]][bountysource]
+[![Discord][discord-shield]][discord]
+[![Community Forum][forum-shield]][forum]
+
+[![Gratipay][gratipay-shield]][gratipay]
+[![Patreon][patreon-shield]][patreon]
+[![PayPal][paypal-shield]][paypal]
+[![Bitcoin][bitcoin-shield]][bitcoin]
 
 This is a Vagrant box containing [Home Assistant][home-assistant]
 based on Hass.io.
@@ -190,11 +197,18 @@ this repository to:
 Note: _When destroying the Hass.io virtual machine, the contents of the
 `config` folder WILL BE DELETED. All other folders are left untouched._
 
-## Changelog
+## Changelog & Releases
 
-This repository keeps a [change log](CHANGELOG.md) and adhere to
-[Semantic Versioning][semver]. The format of the log is based
-on [Keep a Changelog][keepchangelog].
+This repository keeps a [change log](CHANGELOG.md). The format of the log
+is based on [Keep a Changelog][keepchangelog].
+
+Releases are based on [Semantic Versioning][semver], and use the format
+of ``MAJOR.MINOR.PATCH``. In a nutshell, the version will be incremented
+based on the following:
+
+- ``MAJOR``: Incompatible or major changes.
+- ``MINOR``: Backwards-compatible new features and enhancements.
+- ``PATCH``: Backwards-compatible bugfixes and package updates.
 
 ## Support
 
@@ -202,8 +216,8 @@ Got questions?
 
 You have several options to get them answered:
 
-- The Home Assistant [Community Forums][forums], we have a
-  [dedicated topic][forums] on that forum regarding this repository.
+- The Home Assistant [Community Forum][forum], we have a
+  [dedicated topic][forum] on that forum regarding this repository.
 - The Home Assistant [Discord Chat Server][discord] for general Home Assistant
   discussions and questions.
 - Join the [Reddit subreddit][reddit] in [/r/homeassistant][reddit]
@@ -215,7 +229,8 @@ You could also [open an issue here][issue] GitHub.
 This is an active open-source project. We are always open to people who want to
 use the code or contribute to it.
 
-We've set up a separate document for our [contribution guidelines](CONTRIBUTING.md).
+We have set up a separate document containing our
+[contribution guidelines](CONTRIBUTING.md).
 
 Thank you for being involved! :heart_eyes:
 
@@ -226,7 +241,7 @@ The original setup of this repository is by [Franck Nijhof][frenck].
 For a full list of all authors and contributors,
 check [the contributor's page][contributors].
 
-## We've got some Hass.io add-ons for you
+## We have got some Hass.io add-ons for you
 
 Want some more functionality to your Hass.io Home Assistant instance?
 
@@ -258,19 +273,33 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 [awesome-shield]: https://img.shields.io/badge/awesome%3F-yes-brightgreen.svg
-[codeclimate-shield]: https://img.shields.io/codeclimate/github/hassio-addons/hassio-vagrant.svg
+[bitcoin-shield]: https://img.shields.io/badge/donate-bitcoin-blue.svg
+[bitcoin]: https://blockchain.info/payment_request?address=3GVzgN6NpVtfXnyg5dQnaujtqVTEDBCtAH
+[bountysource-shield]: https://img.shields.io/bountysource/team/hassio-addons/activity.svg
+[bountysource]: https://www.bountysource.com/teams/hassio-addons/issues
+[codeclimate-shield]: https://img.shields.io/badge/code%20climate-protected-brightgreen.svg
 [codeclimate]: https://codeclimate.com/github/hassio-addons/hassio-vagrant
+[commits-shield]: https://img.shields.io/github/commit-activity/y/hassio-addons/addon-ssh.svg
+[commits]: https://github.com/hassio-addons/addon-ssh/commits/master
 [contributors]: https://github.com/hassio-addons/hassio-vagrant/graphs/contributors
+[discord-shield]: https://img.shields.io/discord/330944238910963714.svg
 [discord]: https://discord.gg/c5DvZ4e
 [downloads-shield]: https://img.shields.io/github/downloads/hassio-addons/hassio-vagrant/total.svg
-[forums]: https://community.home-assistant.io/t/hass-io-on-vagrant-virtualbox-for-testing-add-on-development/29612?u=frenck
+[forum-shield]: https://img.shields.io/badge/community-forum-brightgreen.svg
+[forum]: https://community.home-assistant.io/t/repository-community-hass-io-add-ons/24705?u=frenck
 [frenck]: https://github.com/frenck
+[gratipay-shield]: https://img.shields.io/badge/donate-gratipay-blue.svg
+[gratipay]: https://gratipay.com/hassio-addons/
 [home-assistant]: https://home-assistant.io/
 [issue]: https://github.com/hassio-addons/hassio-vagrant/issues
 [keepchangelog]: http://keepachangelog.com/en/1.0.0/
 [license-shield]: https://img.shields.io/github/license/hassio-addons/hassio-vagrant.svg
 [maintenance-shield]: https://img.shields.io/maintenance/yes/2017.svg
 [netdata]: https://my-netdata.io
+[patreon-shield]: https://img.shields.io/badge/donate-patreon-blue.svg
+[patreon]: https://www.patreon.com/frenck
+[paypal-shield]: https://img.shields.io/badge/donate-paypal-blue.svg
+[paypal]: https://www.paypal.me/FranckNijhof
 [portainer]: https://portainer.io
 [project-stage-shield]: https://img.shields.io/badge/Project%20Stage-Experimental-yellow.svg
 [reddit]: https://reddit.com/r/homeassistant
