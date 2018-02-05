@@ -69,7 +69,7 @@ install_docker() {
     apt-get update
     apt-get install -y docker-ce
 
-    usermod -aG docker ubuntu
+    usermod -aG docker vagrant
 }
 
 # ------------------------------------------------------------------------------
