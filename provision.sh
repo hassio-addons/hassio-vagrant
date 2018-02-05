@@ -138,8 +138,8 @@ show_post_up_message() {
     local ip_private
     
     sleep 5
-    ip_public=$(ip -f inet -o addr show eth0 | cut -d\  -f 7 | cut -d/ -f 1)
-    ip_private=$(ip -f inet -o addr show hassio | cut -d\  -f 7 | cut -d/ -f 1)
+    ip_public=$(ip -f inet -o addr show eth1 | cut -d\  -f 7 | cut -d/ -f 1)
+    ip_private=$(ip -f inet -o addr show eth2 | cut -d\  -f 7 | cut -d/ -f 1)
 
     echo '====================================================================='
     echo ' Community Hass.io Add-ons: Vagrant'
