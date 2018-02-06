@@ -134,12 +134,16 @@ install_hassio() {
 #   None
 # ------------------------------------------------------------------------------
 show_post_up_message() {
-    local ip_public
-    local ip_private
-    
-    sleep 5
-    ip_public=$(ip -f inet -o addr show eth1 | cut -d\  -f 7 | cut -d/ -f 1)
-    ip_private=$(ip -f inet -o addr show eth2 | cut -d\  -f 7 | cut -d/ -f 1)
+    local ip_addresses
+    ip_addresses=()
+    for available_interface in `ls /sys/class/net`; do
+        if [[ "$available_interface" != "lo" ]] &&
+           [[ "$available_interface" != "docker0" ]] &&
+           [[ "$available_interface" != "hassio" ]]
+        then
+            ip_addresses+=($(ip -f inet -o addr show ${available_interface} | cut -d\  -f 7 | cut -d/ -f 1))
+        fi
+    done
 
     echo '====================================================================='
     echo ' Community Hass.io Add-ons: Vagrant'
@@ -148,16 +152,16 @@ show_post_up_message() {
     echo ' before it is actually responding/available.'
     echo ''
     echo ' Home Assitant is running on the following links:'
-    echo "  - http://${ip_private}:8123"
-    echo "  - http://${ip_public}:8123"
+    for i in ${ip_addresses[@]}; do
+    echo "  - http://${i}:8123"; done
     echo ''
     echo ' Portainer is running on the following links:'
-    echo "  - http://${ip_private}:9000"
-    echo "  - http://${ip_public}:9000"
+    for i in ${ip_addresses[@]}; do
+    echo "  - http://${i}:9000"; done
     echo ''
     echo ' Netdata is providing awesome stats on these links:'
-    echo "  - http://${ip_private}:19999"
-    echo "  - http://${ip_public}:19999"
+    for i in ${ip_addresses[@]}; do
+    echo "  - http://${i}:19999"; done
     echo '====================================================================='
 }
 
