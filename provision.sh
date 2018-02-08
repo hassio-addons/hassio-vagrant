@@ -136,12 +136,12 @@ install_hassio() {
 show_post_up_message() {
     local ip_addresses
     ip_addresses=()
-    for available_interface in `ls /sys/class/net`; do
-        if [[ "$available_interface" != "lo" ]] &&
-           [[ "$available_interface" != "docker0" ]] &&
-           [[ "$available_interface" != "hassio" ]]
+    for i in $(basename -a /sys/class/net/*); do
+        if [[ "$i" != "lo" ]] &&
+           [[ "$i" != "docker0" ]] &&
+           [[ "$i" != "hassio" ]]
         then
-            ip_addresses+=($(ip -f inet -o addr show ${available_interface} | cut -d\  -f 7 | cut -d/ -f 1))
+            ip_addresses+=($(ip -f inet -o addr show "${i}" | cut -d\  -f 7 | cut -d/ -f 1))
         fi
     done
 
@@ -152,16 +152,13 @@ show_post_up_message() {
     echo ' before it is actually responding/available.'
     echo ''
     echo ' Home Assitant is running on the following links:'
-    for i in ${ip_addresses[@]}; do
-    echo "  - http://${i}:8123"; done
+    for i in "${ip_addresses[@]}"; do echo "  - http://${i}:8123" ; done
     echo ''
     echo ' Portainer is running on the following links:'
-    for i in ${ip_addresses[@]}; do
-    echo "  - http://${i}:9000"; done
+    for i in "${ip_addresses[@]}"; do echo "  - http://${i}:9000" ; done
     echo ''
     echo ' Netdata is providing awesome stats on these links:'
-    for i in ${ip_addresses[@]}; do
-    echo "  - http://${i}:19999"; done
+    for i in "${ip_addresses[@]}"; do echo "  - http://${i}:19999" ; done
     echo '====================================================================='
 }
 
