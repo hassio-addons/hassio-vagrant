@@ -7,14 +7,8 @@
 [![License][license-shield]](LICENSE.md)
 
 [![Code Climate][codeclimate-shield]][codeclimate]
-[![Bountysource][bountysource-shield]][bountysource]
 [![Discord][discord-shield]][discord]
 [![Community Forum][forum-shield]][forum]
-
-[![Gratipay][gratipay-shield]][gratipay]
-[![Patreon][patreon-shield]][patreon]
-[![PayPal][paypal-shield]][paypal]
-[![Bitcoin][bitcoin-shield]][bitcoin]
 
 This is a Vagrant box containing [Home Assistant][home-assistant]
 based on Hass.io.
@@ -273,10 +267,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 [awesome-shield]: https://img.shields.io/badge/awesome%3F-yes-brightgreen.svg
-[bitcoin-shield]: https://img.shields.io/badge/donate-bitcoin-blue.svg
-[bitcoin]: https://blockchain.info/payment_request?address=3GVzgN6NpVtfXnyg5dQnaujtqVTEDBCtAH
-[bountysource-shield]: https://img.shields.io/bountysource/team/hassio-addons/activity.svg
-[bountysource]: https://www.bountysource.com/teams/hassio-addons/issues
 [codeclimate-shield]: https://img.shields.io/badge/code%20climate-protected-brightgreen.svg
 [codeclimate]: https://codeclimate.com/github/hassio-addons/hassio-vagrant
 [commits-shield]: https://img.shields.io/github/commit-activity/y/hassio-addons/addon-ssh.svg
@@ -288,18 +278,12 @@ SOFTWARE.
 [forum-shield]: https://img.shields.io/badge/community-forum-brightgreen.svg
 [forum]: https://community.home-assistant.io/t/repository-community-hass-io-add-ons/24705?u=frenck
 [frenck]: https://github.com/frenck
-[gratipay-shield]: https://img.shields.io/badge/donate-gratipay-blue.svg
-[gratipay]: https://gratipay.com/hassio-addons/
 [home-assistant]: https://home-assistant.io/
 [issue]: https://github.com/hassio-addons/hassio-vagrant/issues
 [keepchangelog]: http://keepachangelog.com/en/1.0.0/
 [license-shield]: https://img.shields.io/github/license/hassio-addons/hassio-vagrant.svg
 [maintenance-shield]: https://img.shields.io/maintenance/yes/2017.svg
 [netdata]: https://my-netdata.io
-[patreon-shield]: https://img.shields.io/badge/donate-patreon-blue.svg
-[patreon]: https://www.patreon.com/frenck
-[paypal-shield]: https://img.shields.io/badge/donate-paypal-blue.svg
-[paypal]: https://www.paypal.me/FranckNijhof
 [portainer]: https://portainer.io
 [project-stage-shield]: https://img.shields.io/badge/Project%20Stage-Experimental-yellow.svg
 [reddit]: https://reddit.com/r/homeassistant
