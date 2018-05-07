@@ -27,6 +27,8 @@ readonly APT_REQUIREMENTS=(
     jq
     socat
     software-properties-common
+    apparmor-utils
+    network-manager
 )
 
 # ==============================================================================
