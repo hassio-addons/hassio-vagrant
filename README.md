@@ -2,13 +2,17 @@
 
 [![GitHub Release][releases-shield]][releases]
 ![Project Stage][project-stage-shield]
-![Project Maintenance][maintenance-shield]
-[![GitHub Activity][commits-shield]][commits]
 [![License][license-shield]](LICENSE.md)
 
 [![Code Climate][codeclimate-shield]][codeclimate]
+![Project Maintenance][maintenance-shield]
+[![GitHub Activity][commits-shield]][commits]
+
+[![Bountysource][bountysource-shield]][bountysource]
 [![Discord][discord-shield]][discord]
 [![Community Forum][forum-shield]][forum]
+
+[![Buy me a coffee][buymeacoffee-shield]][buymeacoffee]
 
 This is a Vagrant box containing [Home Assistant][home-assistant]
 based on Hass.io.
@@ -267,7 +271,10 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-[awesome-shield]: https://img.shields.io/badge/awesome%3F-yes-brightgreen.svg
+[bountysource-shield]: https://img.shields.io/bountysource/team/hassio-addons/activity.svg
+[bountysource]: https://www.bountysource.com/teams/hassio-addons/issues
+[buymeacoffee-shield]: https://www.buymeacoffee.com/assets/img/guidelines/download-assets-sm-2.svg
+[buymeacoffee]: https://www.buymeacoffee.com/frenck
 [codeclimate-shield]: https://img.shields.io/badge/code%20climate-protected-brightgreen.svg
 [codeclimate]: https://codeclimate.com/github/hassio-addons/hassio-vagrant
 [commits-shield]: https://img.shields.io/github/commit-activity/y/hassio-addons/addon-ssh.svg
