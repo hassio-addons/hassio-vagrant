@@ -290,7 +290,7 @@ SOFTWARE.
 [issue]: https://github.com/hassio-addons/hassio-vagrant/issues
 [keepchangelog]: http://keepachangelog.com/en/1.0.0/
 [license-shield]: https://img.shields.io/github/license/hassio-addons/hassio-vagrant.svg
-[maintenance-shield]: https://img.shields.io/maintenance/yes/2017.svg
+[maintenance-shield]: https://img.shields.io/maintenance/yes/2018.svg
 [netdata]: https://my-netdata.io
 [portainer]: https://portainer.io
 [project-stage-shield]: https://img.shields.io/badge/Project%20Stage-Experimental-yellow.svg
