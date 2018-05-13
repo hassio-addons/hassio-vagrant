@@ -94,7 +94,7 @@ branch may not always be stable. You can find the latest stable version on the
 cd hassio
 
 # Checkout the desired release
-git checkout v0.0.2
+git checkout v0.1.0
 ````
 
 Once you have cloned the `hassio-vagrant` repository, you can use the following
