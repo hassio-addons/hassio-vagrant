@@ -96,6 +96,7 @@ module HassioCommunityAddons
         machine_config machine
         machine_provider_virtualbox machine
         machine_provider_vmware machine
+        machine_provider_hyperv machine
         machine_shares machine
         machine_provision machine
         machine_cleanup_on_destroy machine
@@ -137,6 +138,19 @@ module HassioCommunityAddons
           vmw.vmx['memsize'] = @config['memory']
           vmw.vmx['numvcpus'] = @config['cpus']
         end
+      end
+    end
+
+    # Configures the HyperV provider
+    #
+    # @param [Vagrant::Config::V2::Root] machine Vagrant VM root config
+    def machine_provider_hyperv(machine)
+      machine.vm.provider :hyperv do |hyperv|
+        hyperv.vmname = @config['hostname']
+        hyperv.memory = @config['memory']
+        hyperv.cpus = @config['cpus']
+        hyperv.enable_virtualization_extensions = true
+        hyperv.differencing_disk = true
       end
     end
 
