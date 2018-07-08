@@ -33,7 +33,7 @@ require 'yaml'
 require 'pp'
 
 VAGRANT_API_VERSION = '2'.freeze
-::Vagrant.require_version '>= 1.9.0'
+::Vagrant.require_version '>= 2.1.0'
 
 module HassioCommunityAddons
   # Manages the Vagrant configuration
@@ -61,22 +61,6 @@ module HassioCommunityAddons
 
       print "\nInvalid input. Try again...\n"
       confirm(message, default)
-    end
-
-    # Checks/install required vagrant-triggers plugin
-    def require_triggers_plugin
-      return if ::Vagrant.has_plugin?('vagrant-triggers')
-
-      print "A required vagrant plugin is missing: vagrant-triggers\n"
-      raise ::Vagrant::Errors::VagrantError.new, 'Required plugin missing.' \
-        unless confirm 'Shall I go ahead an install it?', true
-
-      raise ::Vagrant::Errors::VagrantError.new, 'Installation of failed' \
-        unless system 'vagrant plugin install vagrant-triggers'
-
-      print "Restarting Vagrant to re-load plugin changes...\n"
-      system 'vagrant ' + ARGV.join(' ')
-      exit! $CHILD_STATUS.exitstatus
     end
 
     # Configures generic Vagrant options
@@ -167,18 +151,18 @@ module HassioCommunityAddons
     #
     # @param [Vagrant::Config::V2::Root] machine Vagrant VM root config
     def machine_cleanup_on_destroy(machine)
-      root_directory = File.dirname(__FILE__)
-      machine.trigger.after :destroy do
-        FileUtils.rm_rf(
-          Dir.glob(File.join(root_directory, 'config/**'), File::FNM_DOTMATCH)
-          .reject { |i| i =~ %r{(\/.|\/\.\.|\.gitkeep)$} }
-        )
+      config_directory = File.join(File.dirname(__FILE__), 'config')
+      machine.trigger.after :destroy do |trigger|
+        trigger.name = 'Cleanup'
+        trigger.info = 'Cleaning up Home Assistant configuration';
+        trigger.run = { 
+          inline: "find '#{config_directory}' -mindepth 1 -maxdepth 1 -not -name '.gitkeep' -exec rm -rf {} \\;"
+        }
       end
     end
 
     # Run this thing!
     def run
-      require_triggers_plugin
       ::Vagrant.configure(VAGRANT_API_VERSION) do |config|
         vagrant_config(config)
         machine(config, 'hassio')
