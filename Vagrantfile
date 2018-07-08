@@ -156,10 +156,8 @@ module HassioCommunityAddons
         trigger.name = 'Cleanup'
         trigger.info = 'Cleaning up Home Assistant configuration'
         trigger.run = {
-          inline: "find '#{config_directory}'" \
-            " -mindepth 1 -maxdepth 1" \
-            " -not -name '.gitkeep'" \
-            " -exec rm -rf {} \\;"
+          inline: "find '#{config_directory}' -mindepth 1 -maxdepth 1" \
+            ' -not -name ".gitkeep" -exec rm -rf {} \;'
         }
       end
     end
