@@ -154,9 +154,12 @@ module HassioCommunityAddons
       config_directory = File.join(File.dirname(__FILE__), 'config')
       machine.trigger.after :destroy do |trigger|
         trigger.name = 'Cleanup'
-        trigger.info = 'Cleaning up Home Assistant configuration';
-        trigger.run = { 
-          inline: "find '#{config_directory}' -mindepth 1 -maxdepth 1 -not -name '.gitkeep' -exec rm -rf {} \\;"
+        trigger.info = 'Cleaning up Home Assistant configuration'
+        trigger.run = {
+          inline: "find '#{config_directory}'" \
+            " -mindepth 1 -maxdepth 1" \
+            " -not -name '.gitkeep'" \
+            " -exec rm -rf {} \\;"
         }
       end
     end
