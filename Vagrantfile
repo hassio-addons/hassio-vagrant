@@ -130,8 +130,11 @@ module HassioCommunityAddons
     def machine_shares(machine)
       @config['shares'].each do |src, dst|
         machine.vm.synced_folder(
-          src, dst, create: true,
-          type: share_type, SharedFoldersEnableSymlinksCreate: false
+          src,
+          dst,
+          create: true,
+          type: share_type,
+          SharedFoldersEnableSymlinksCreate: false
         )
       end
     end
