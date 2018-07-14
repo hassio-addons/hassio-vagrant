@@ -19,16 +19,16 @@ readonly HASSIO_INSTALLER="https://raw.githubusercontent.com/home-assistant/hass
 readonly DOCKER_DOWNLOAD="https://download.docker.com/linux"
 readonly NETDATA_INSTALLER="https://my-netdata.io/kickstart-static64.sh"
 readonly APT_REQUIREMENTS=(
+    apparmor-utils
     apt-transport-https
     avahi-daemon
     ca-certificates
     curl
     dbus
     jq
+    network-manager
     socat
     software-properties-common
-    apparmor-utils
-    network-manager
 )
 
 # ==============================================================================
