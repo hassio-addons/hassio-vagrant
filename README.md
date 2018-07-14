@@ -93,7 +93,7 @@ branch may not always be stable. You can find the latest stable version on the
 cd hassio
 
 # Checkout the desired release
-git checkout v0.1.0
+git checkout v1.0.0
 ````
 
 Once you have cloned the `hassio-vagrant` repository, you can use the following
@@ -292,7 +292,7 @@ SOFTWARE.
 [maintenance-shield]: https://img.shields.io/maintenance/yes/2018.svg
 [netdata]: https://my-netdata.io
 [portainer]: https://portainer.io
-[project-stage-shield]: https://img.shields.io/badge/Project%20Stage-Experimental-yellow.svg
+[project-stage-shield]: https://img.shields.io/badge/project%20stage-production%20ready-brightgreen.svg
 [reddit]: https://reddit.com/r/homeassistant
 [releases-shield]: https://img.shields.io/github/release/hassio-addons/hassio-vagrant.svg
 [releases]: https://github.com/hassio-addons/hassio-vagrant/releases
