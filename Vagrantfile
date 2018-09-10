@@ -79,7 +79,6 @@ module HassioCommunityAddons
       config.vm.define name do |machine|
         machine_config machine
         machine_provider_virtualbox machine
-        machine_provider_vmware machine
         machine_shares machine
         machine_provision machine
         machine_cleanup_on_destroy machine
@@ -108,19 +107,6 @@ module HassioCommunityAddons
         vbox.customize ['modifyvm', :id, '--nictype3', 'virtio']
         vbox.customize ['modifyvm', :id, '--natdnshostresolver1', 'on']
         vbox.customize ['modifyvm', :id, '--natdnsproxy1', 'on']
-      end
-    end
-
-    # Configures the VMware provider
-    #
-    # @param [Vagrant::Config::V2::Root] machine Vagrant VM root config
-    def machine_provider_vmware(machine)
-      %w(vmware_fusion vmware_workstation).each do |vmware|
-        machine.vm.provider vmware do |vmw|
-          vmw.vmx['displayName'] = @config['hostname']
-          vmw.vmx['memsize'] = @config['memory']
-          vmw.vmx['numvcpus'] = @config['cpus']
-        end
       end
     end
 
