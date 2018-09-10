@@ -68,9 +68,10 @@ those tools.
 ## Getting started
 
 Before launching your Hass.io environment, you must install
-[VirtualBox][virtualbox] 5.1 or higher, as well as [Vagrant][vagrant] 2.1.0 or
-higher. These software packages provide easy-to-use visual installers for
-all popular operating systems and are open source.
+[VirtualBox][virtualbox] 5.1 or higher INCLUDING the VirtualBox Extension Pack,
+as well as [Vagrant][vagrant] 2.1.0 or higher. These software packages provide
+easy-to-use visual installers for all popular operating systems
+and are open source.
 
 Once [VirtualBox][virtualbox] and [Vagrant][vagrant] have been installed, you
 install `hassio-vagrant` by simply cloning this repository. Consider cloning

@@ -41,6 +41,12 @@ module HassioCommunityAddons
   class Vagrant
     # Class constructor
     def initialize
+      unless `vboxmanage list extpacks`.include? \
+        'Oracle VM VirtualBox Extension Pack'
+        raise ::Vagrant::Errors::VagrantError.new, \
+              'Could not find VirtualBox Extension Pack! Did you install it?'
+      end
+
       @config = YAML.load_file(
         File.join(File.dirname(__FILE__), 'configuration.yml')
       )
@@ -107,6 +113,7 @@ module HassioCommunityAddons
         vbox.customize ['modifyvm', :id, '--nictype3', 'virtio']
         vbox.customize ['modifyvm', :id, '--natdnshostresolver1', 'on']
         vbox.customize ['modifyvm', :id, '--natdnsproxy1', 'on']
+        vbox.customize ['modifyvm', :id, '--usb', 'on', '--usbehci', 'on']
       end
     end
 
