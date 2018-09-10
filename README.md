@@ -77,6 +77,11 @@ Once [VirtualBox][virtualbox] and [Vagrant][vagrant] have been installed, you
 install `hassio-vagrant` by simply cloning this repository. Consider cloning
 the repository into a folder within your "home" directory.
 
+In case you are running this on a Linux system, you'll need to install `nfsd`.
+For example, Ubuntu: `sudo apt-get install nfs-common nfs-kernel-server`.
+
+Now the installation of this Vagrant machine:
+
 ```bash
 # Goto your home directory
 cd ~
