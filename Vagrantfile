@@ -32,7 +32,6 @@ require 'vagrant'
 require 'yaml'
 require 'pp'
 
-VAGRANT_API_VERSION = '2'.freeze
 ::Vagrant.require_version '>= 2.1.0'
 
 module HassioCommunityAddons
@@ -62,8 +61,8 @@ module HassioCommunityAddons
 
       result = $stdin.gets.chomp.strip.downcase
       return default if result.empty?
-      return true if %w(y yes).include? result
-      return false if %w(n no).include? result
+      return true if %w[y yes].include? result
+      return false if %w[n no].include? result
 
       print "\nInvalid input. Try again...\n"
       confirm(message, default)
@@ -103,6 +102,7 @@ module HassioCommunityAddons
     # Configures the Virtualbox provider
     #
     # @param [Vagrant::Config::V2::Root] machine Vagrant VM root config
+    # rubocop:disable Metrics/MethodLength
     def machine_provider_virtualbox(machine)
       machine.vm.provider :virtualbox do |vbox|
         vbox.name = @config['hostname']
@@ -119,6 +119,7 @@ module HassioCommunityAddons
                         '--audioout', 'on']
       end
     end
+    # rubocop:enable Metrics/MethodLength
 
     # Configures a VM's shares
     #
@@ -166,7 +167,7 @@ module HassioCommunityAddons
 
     # Run this thing!
     def run
-      ::Vagrant.configure(VAGRANT_API_VERSION) do |config|
+      ::Vagrant.configure('2') do |config|
         vagrant_config(config)
         machine(config, 'hassio')
       end
