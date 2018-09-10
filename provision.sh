@@ -19,14 +19,18 @@ readonly HASSIO_INSTALLER="https://raw.githubusercontent.com/home-assistant/hass
 readonly DOCKER_DOWNLOAD="https://download.docker.com/linux"
 readonly NETDATA_INSTALLER="https://my-netdata.io/kickstart-static64.sh"
 readonly APT_REQUIREMENTS=(
+    alsa
+    alsa-utils
     apparmor-utils
     apt-transport-https
     avahi-daemon
     ca-certificates
     curl
     dbus
+    dkms
     jq
     network-manager
+    oem-audio-hda-daily-dkms
     socat
     software-properties-common
 )
@@ -44,8 +48,28 @@ readonly APT_REQUIREMENTS=(
 #   None
 # ------------------------------------------------------------------------------
 install_requirements() {
+    add-apt-repository -y ppa:ubuntu-audio-dev/alsa-daily
     apt-get update
     apt-get install -y "${APT_REQUIREMENTS[@]}"
+}
+
+# ------------------------------------------------------------------------------
+# Configures audio device
+#
+# Arguments:
+#   None
+# Returns:
+#   None
+# ------------------------------------------------------------------------------
+configure_audio() {
+    gpasswd --add vagrant audio
+    echo 'options snd-hda-intel model=generic index=0' \
+        >> /etc/modprobe.d/alsa-base.conf
+    echo 'snd' >> /etc/modules
+    echo 'snd-hda-intel' >> /etc/modules
+    modprobe snd
+    modprobe snd-hda-intel
+    alsa force-reload || true
 }
 
 # ------------------------------------------------------------------------------
@@ -171,6 +195,7 @@ show_post_up_message() {
 # ------------------------------------------------------------------------------
 main() {
     install_requirements
+    configure_audio
     install_docker
     install_netdata
     install_portainer

@@ -114,6 +114,9 @@ module HassioCommunityAddons
         vbox.customize ['modifyvm', :id, '--natdnshostresolver1', 'on']
         vbox.customize ['modifyvm', :id, '--natdnsproxy1', 'on']
         vbox.customize ['modifyvm', :id, '--usb', 'on', '--usbehci', 'on']
+        vbox.customize ['modifyvm', :id, '--audio', 'coreaudio',
+                        '--audiocontroller', 'hda', '--audioin', 'on',
+                        '--audioout', 'on']
       end
     end
 
