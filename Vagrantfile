@@ -95,8 +95,8 @@ module HassioCommunityAddons
     # @param [Vagrant::Config::V2::Root] machine Vagrant VM root config
     def machine_config(machine)
       machine.vm.hostname = @config['hostname']
-      machine.vm.network 'public_network', type: 'dhcp'
       machine.vm.network 'private_network', type: 'dhcp'
+      machine.vm.network 'public_network', type: 'dhcp'
     end
 
     # Configures the Virtualbox provider

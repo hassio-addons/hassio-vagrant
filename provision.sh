@@ -163,8 +163,8 @@ show_post_up_message() {
     local ip_public
     local ip_private
     
-    ip_public=$(ip -f inet -o addr show enp0s8 | cut -d\  -f 7 | cut -d/ -f 1)
-    ip_private=$(ip -f inet -o addr show enp0s9 | cut -d\  -f 7 | cut -d/ -f 1)
+    ip_public=$(ip -4 -o addr s enp0s9|head -1|cut -d\  -f 7|cut -d/ -f 1)
+    ip_private=$(ip -4 -o addr s enp0s8|head -1|cut -d\  -f 7|cut -d/ -f 1)
 
     echo '====================================================================='
     echo ' Community Hass.io Add-ons: Vagrant'
