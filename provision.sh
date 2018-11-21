@@ -84,10 +84,6 @@ install_docker() {
     local os
     local lsb_release
 
-    # https://development.robinwinslow.uk/2016/06/23/fix-docker-networking-dns/
-    mkdir -p /etc/docker
-    echo '{"dns": ["8.8.8.8", "8.8.4.4"]}' > /etc/docker/daemon.json
-
     os=$(. /etc/os-release; echo "${ID}")
     lsb_release=$(lsb_release -cs)
 
