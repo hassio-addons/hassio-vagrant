@@ -86,7 +86,7 @@ module HassioCommunityAddons
         machine_provider_virtualbox machine
         machine_shares machine
         machine_provision machine
-        machine_cleanup_on_destroy machine
+        machine_cleanup_on_destroy machine unless @config['keep_config']
       end
     end
 
