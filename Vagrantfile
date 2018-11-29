@@ -96,7 +96,11 @@ module HassioCommunityAddons
     def machine_config(machine)
       machine.vm.hostname = @config['hostname']
       machine.vm.network 'private_network', type: 'dhcp'
-      machine.vm.network 'public_network', type: 'dhcp'
+      machine.vm.network(
+        'public_network',
+        type: 'dhcp',
+        bridge: @config['bridge']
+      )
     end
 
     # Configures the Virtualbox provider
