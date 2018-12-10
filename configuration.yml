@@ -5,6 +5,7 @@ hostname: hassio
 post_up_message: Hass.io starting... wait a couple of minutes!
 box: ubuntu/bionic64
 bridge: ~
+keep_config: false
 shares:
   addons: /usr/share/hassio/addons/local
   backup: /usr/share/hassio/backup
