@@ -27,7 +27,7 @@ in a couple of minutes.
 ![Home Assistant](images/homeassistant.png)
 
 This setup comes preloaded with [netdata][] and [Portainer][portainer] to
-provide you, even more, insight to what is happing under the hood.
+provide you, even more, insight into what is happing under the hood.
 
 ### Portainer
 
@@ -99,7 +99,7 @@ branch may not always be stable. You can find the latest stable version on the
 cd hassio
 
 # Checkout the desired release
-git checkout v1.0.0
+git checkout v1.2.0
 ````
 
 Once you have cloned the `hassio-vagrant` repository, you can use the following
@@ -199,6 +199,44 @@ this repository to:
 
 Note: _When destroying the Hass.io virtual machine, the contents of the
 `config` folder WILL BE DELETED. All other folders are left untouched._
+
+## Configuration
+
+This Vagrant box ships with a small configuration file, `configuration.yml`,
+that allows you to tweak some settings of the virtual machine.
+
+### `memory`
+
+The number of megabytes of memory you want to give to the virtual machine.
+By default, this has been set to 1024Mb. This number is pretty low, but
+enough for most add-on development and ensures this setup can be run on
+almost any machine. Feel free to upgrade the memory if you have spare.
+
+### `cpus`
+
+The number of CPU cores to give to the virtual machine. Defaults to 2.
+
+### `hostname`
+
+The hostname of the virtual Hass.io machine. Defaults to `hassio`. It might
+be wise to change this, in case you already have an Hass.io device in your
+network.
+
+### `bridge`
+
+Allows you the specific the network interface to bridge to. By default, this
+is set to `~`, which is the same as _nothing set_ and causes Vagrant
+to ask you for the network interface to use each time you start the virtual
+machine.
+
+### `keep_config`
+
+By default, if you destroy the virtual machine, the Home Assistant
+configuration is removed automatically as well. This is to ensure you
+have a fresh start each time you start the virtual machine.
+
+However, if you are in the need to keep the configuration on the destruction of
+the virtual machine, you can simply set this option to `true`.
 
 ## Changelog & Releases
 
