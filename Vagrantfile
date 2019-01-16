@@ -33,24 +33,6 @@ require 'yaml'
 require 'pp'
 
 ::Vagrant.require_version '>= 2.1.0'
-# Identify OS Platform
-module OS
-  def self.windows?
-    (/cygwin|mswin|mingw|bccwin|wince|emx/ =~ RUBY_PLATFORM) != nil
-  end
-
-  def self.mac?
-    (/darwin/ =~ RUBY_PLATFORM) != nil
-  end
-
-  def self.unix?
-    !OS.windows?
-  end
-
-  def self.linux?
-    OS.unix? && !OS.mac?
-  end
-end
 
 module HassioCommunityAddons
   # Manages the Vagrant configuration
@@ -136,17 +118,10 @@ module HassioCommunityAddons
         vbox.customize ['modifyvm', :id, '--natdnshostresolver1', 'on']
         vbox.customize ['modifyvm', :id, '--natdnsproxy1', 'on']
         vbox.customize ['modifyvm', :id, '--usb', 'on', '--usbehci', 'on']
-        if OS.windows?
-          vbox.customize ['modifyvm', :id, '--audio', 'dsound',
-                          '--audiocontroller', 'hda',
-                          '--audioin', 'on', '--audioout', 'on']
-        elsif OS.mac?
-          vbox.customize ['modifyvm', :id, '--audio', 'coreaudio',
-                          '--audiocontroller', 'hda',
-                          '--audioin', 'on', '--audioout', 'on']
-          # else
-          # someone needs to add other os commands
-        end
+        soundtype = ::Vagrant::Util::Platform.windows? ? 'dsound' : 'coreaudio'
+        vbox.customize ['modifyvm', :id, '--audio', soundtype,
+                        '--audiocontroller', 'hda',
+                        '--audioin', 'on', '--audioout', 'on']
       end
     end
     # rubocop:enable Metrics/MethodLength
