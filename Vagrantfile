@@ -138,14 +138,16 @@ module HassioCommunityAddons
 		  vbox.customize ['modifyvm', :id, '--usb', 'on', '--usbehci', 'on']
 			if OS.windows?
 				vbox.customize ['modifyvm', :id, '--audio', 'dsound',
-					'--audiocontroller', 'hda', '--audioin', 'on',
+				  '--audiocontroller', 'hda',
+          '--audioin', 'on',
 					'--audioout', 'on']
 			elsif OS.mac?
 				vbox.customize ['modifyvm', :id, '--audio', 'coreaudio',
-					'--audiocontroller', 'hda', '--audioin', 'on',
+					'--audiocontroller', 'hda',
+          '--audioin', 'on',
 					'--audioout', 'on']
 			else
-					#someone needs to add other os commands
+					# someone needs to add other os commands
 			end
 		end
 	end
