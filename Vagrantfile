@@ -34,6 +34,24 @@ require 'pp'
 
 ::Vagrant.require_version '>= 2.1.0'
 
+module OS
+    def OS.windows?
+        (/cygwin|mswin|mingw|bccwin|wince|emx/ =~ RUBY_PLATFORM) != nil
+    end
+
+    def OS.mac?
+        (/darwin/ =~ RUBY_PLATFORM) != nil
+    end
+
+    def OS.unix?
+        !OS.windows?
+    end
+
+    def OS.linux?
+        OS.unix? and not OS.mac?
+    end
+end
+
 module HassioCommunityAddons
   # Manages the Vagrant configuration
   # @author Franck Nijhof <frenck@addons.community>
@@ -108,21 +126,29 @@ module HassioCommunityAddons
     # @param [Vagrant::Config::V2::Root] machine Vagrant VM root config
     # rubocop:disable Metrics/MethodLength
     def machine_provider_virtualbox(machine)
-      machine.vm.provider :virtualbox do |vbox|
-        vbox.name = @config['hostname']
-        vbox.cpus = @config['cpus']
-        vbox.customize ['modifyvm', :id, '--memory', @config['memory']]
-        vbox.customize ['modifyvm', :id, '--nictype1', 'virtio']
-        vbox.customize ['modifyvm', :id, '--nictype2', 'virtio']
-        vbox.customize ['modifyvm', :id, '--nictype3', 'virtio']
-        vbox.customize ['modifyvm', :id, '--natdnshostresolver1', 'on']
-        vbox.customize ['modifyvm', :id, '--natdnsproxy1', 'on']
-        vbox.customize ['modifyvm', :id, '--usb', 'on', '--usbehci', 'on']
-        vbox.customize ['modifyvm', :id, '--audio', 'coreaudio',
-                        '--audiocontroller', 'hda', '--audioin', 'on',
-                        '--audioout', 'on']
-      end
-    end
+		machine.vm.provider :virtualbox do |vbox|
+	      vbox.name = @config['hostname']
+		  vbox.cpus = @config['cpus']
+		  vbox.customize ['modifyvm', :id, '--memory', @config['memory']]
+		  vbox.customize ['modifyvm', :id, '--nictype1', 'virtio']
+		  vbox.customize ['modifyvm', :id, '--nictype2', 'virtio']
+		  vbox.customize ['modifyvm', :id, '--nictype3', 'virtio']
+		  vbox.customize ['modifyvm', :id, '--natdnshostresolver1', 'on']
+		  vbox.customize ['modifyvm', :id, '--natdnsproxy1', 'on']
+		  vbox.customize ['modifyvm', :id, '--usb', 'on', '--usbehci', 'on']
+			if OS.windows?
+				vbox.customize ['modifyvm', :id, '--audio', 'dsound',
+					'--audiocontroller', 'hda', '--audioin', 'on',
+					'--audioout', 'on']
+			elsif OS.mac?
+				vbox.customize ['modifyvm', :id, '--audio', 'coreaudio',
+					'--audiocontroller', 'hda', '--audioin', 'on',
+					'--audioout', 'on']
+			else
+					#someone needs to add other os commands
+			end
+		end
+	end
     # rubocop:enable Metrics/MethodLength
 
     # Configures a VM's shares
