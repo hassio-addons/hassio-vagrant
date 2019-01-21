@@ -118,16 +118,17 @@ module HassioCommunityAddons
         vbox.customize ['modifyvm', :id, '--natdnshostresolver1', 'on']
         vbox.customize ['modifyvm', :id, '--natdnsproxy1', 'on']
         vbox.customize ['modifyvm', :id, '--usb', 'on', '--usbehci', 'on']
-        vbox.customize ['modifyvm', :id, '--audio', 'coreaudio',
-                        '--audiocontroller', 'hda', '--audioin', 'on',
-                        '--audioout', 'on']
+        soundtype = ::Vagrant::Util::Platform.windows? ? 'dsound' : 'coreaudio'
+        vbox.customize ['modifyvm', :id, '--audio', soundtype,
+                        '--audiocontroller', 'hda',
+                        '--audioin', 'on', '--audioout', 'on']
       end
     end
     # rubocop:enable Metrics/MethodLength
-
     # Configures a VM's shares
     #
     # @param [Vagrant::Config::V2::Root] machine Vagrant VM root config
+
     def machine_shares(machine)
       @config['shares'].each do |src, dst|
         machine.vm.synced_folder(
