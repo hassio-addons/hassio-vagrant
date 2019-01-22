@@ -35,6 +35,7 @@ require 'pp'
 ::Vagrant.require_version '>= 2.1.0'
 
 module HassioCommunityAddons
+  # rubocop:disable Metrics/ClassLength
   # Manages the Vagrant configuration
   # @author Franck Nijhof <frenck@addons.community>
   class Vagrant
@@ -155,17 +156,27 @@ module HassioCommunityAddons
       end
     end
 
+    # Define cleanup command based on OS
+    def os_cleanup_task
+      config_directory = File.join(File.dirname(__FILE__), 'config')
+      if ::Vagrant::Util::Platform.windows?
+        "gci '#{config_directory}' -depth 1 " \
+        ' -exclude ".gitkeep" | Remove-Item -recurse'
+      else
+        "find '#{config_directory}' -mindepth 1 -maxdepth 1" \
+        ' -not -name ".gitkeep" -exec rm -rf {} \;'
+      end
+    end
+
     # Defines a VM cleanup task when destroying the VM
     #
     # @param [Vagrant::Config::V2::Root] machine Vagrant VM root config
     def machine_cleanup_on_destroy(machine)
-      config_directory = File.join(File.dirname(__FILE__), 'config')
       machine.trigger.after :destroy do |trigger|
         trigger.name = 'Cleanup'
         trigger.info = 'Cleaning up Home Assistant configuration'
         trigger.run = {
-          inline: "find '#{config_directory}' -mindepth 1 -maxdepth 1" \
-            ' -not -name ".gitkeep" -exec rm -rf {} \;'
+          inline: os_cleanup_task
         }
       end
     end
@@ -178,6 +189,7 @@ module HassioCommunityAddons
       end
     end
   end
+  # rubocop:enable Metrics/ClassLength
 end
 
 # Create a instance
