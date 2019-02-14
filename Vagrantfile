@@ -53,7 +53,7 @@ module HassioCommunityAddons
     end
 
     # Simple CLI Yes / No question
-    #
+    # Only used by Windows Setup
     # @param [String] message Question to ask
     # @param [Boolean] default True, to default to yes, false to default to no
     # @return [Boolean] True if answered yes, false if answered no
@@ -69,6 +69,25 @@ module HassioCommunityAddons
       confirm(message, default)
     end
 
+    # Check for addon on Windows for NFS as SMB is slow
+    # rubocop:disable Metrics/MethodLength
+    def require_nfs_plugin
+      return if ::Vagrant.has_plugin?('vagrant-winnfsd')
+
+      print "It is recommended to use the following plugin on Windows \
+(SMB is slow): vagrant-winnfsd\n"
+      if confirm 'Shall I go ahead and install it?', true
+        raise ::Vagrant::Errors::VagrantError.new, 'Plugin Installation failed' \
+          unless system 'vagrant plugin install vagrant-winnfsd'
+
+        print "Restarting Vagrant to reload plugin changes...\n"
+        system 'vagrant ' + ARGV.join(' ')
+        exit! $CHILD_STATUS.exitstatus
+      else
+        print "Recommended plugin missing, continuing with SMB...\n" \
+      end
+    end
+    # rubocop:enable Metrics/MethodLength
     # Configures generic Vagrant options
     #
     # @param [Vagrant::Config::V2::Root] config Vagrant root config
@@ -142,9 +161,11 @@ module HassioCommunityAddons
       end
     end
 
-    # Determines the type of filesharing. SMB for windows, else NFS.
+    # Determines the type of filesharing. SMB for windows (without nfs plugin)
+    # else NFS.
     def share_type
-      RbConfig::CONFIG['host_os'] =~ /mswin|mingw|cygwin/ ? 'smb' : 'nfs'
+      ::Vagrant::Util::Platform.windows? &&
+        !::Vagrant.has_plugin?('vagrant-winnfsd')? 'smb' : 'nfs'
     end
 
     # Configures a VM's provisioning
@@ -184,6 +205,7 @@ module HassioCommunityAddons
     # Run this thing!
     def run
       ::Vagrant.configure('2') do |config|
+        require_nfs_plugin if ::Vagrant::Util::Platform.windows?
         vagrant_config(config)
         machine(config, 'hassio')
       end
