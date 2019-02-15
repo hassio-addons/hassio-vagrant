@@ -1,5 +1,5 @@
 ---
-memory: 2048
+memory: 1024
 cpus: 2
 hostname: hassio
 post_up_message: Hass.io starting... wait a couple of minutes!
