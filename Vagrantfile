@@ -170,7 +170,7 @@ module HassioCommunityAddons
         !::Vagrant.has_plugin?('vagrant-winnfsd') ? 'smb' : 'nfs'
     end
 
-    # rubocop:enaable Style/MultilineTernaryOperator
+    # rubocop:enable Style/MultilineTernaryOperator
     # Configures a VM's provisioning
     #
     # @param [Vagrant::Config::V2::Root] machine Vagrant VM root config
