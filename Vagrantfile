@@ -87,6 +87,7 @@ module HassioCommunityAddons
         print "Recommended plugin missing, continuing with SMB...\n" \
       end
     end
+    
     # rubocop:enable Metrics/MethodLength
     # Configures generic Vagrant options
     #
