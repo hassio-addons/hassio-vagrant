@@ -77,7 +77,7 @@ module HassioCommunityAddons
       print "It is recommended to use the following plugin on Windows \
 (SMB is slow): vagrant-winnfsd\n"
       if confirm 'Shall I go ahead and install it?', true
-        raise ::Vagrant::Errors::VagrantError.new, 'Plugin Installation failed' \
+        raise ::Vagrant::Errors::VagrantError.new, 'Plugin Install failed' \
           unless system 'vagrant plugin install vagrant-winnfsd'
 
         print "Restarting Vagrant to reload plugin changes...\n"
@@ -87,6 +87,7 @@ module HassioCommunityAddons
         print "Recommended plugin missing, continuing with SMB...\n" \
       end
     end
+
     # rubocop:enable Metrics/MethodLength
     # Configures generic Vagrant options
     #
@@ -163,11 +164,13 @@ module HassioCommunityAddons
 
     # Determines the type of filesharing. SMB for windows (without nfs plugin)
     # else NFS.
+    # rubocop:disable Style/MultilineTernaryOperator
     def share_type
       ::Vagrant::Util::Platform.windows? &&
-        !::Vagrant.has_plugin?('vagrant-winnfsd')? 'smb' : 'nfs'
+        !::Vagrant.has_plugin?('vagrant-winnfsd') ? 'smb' : 'nfs'
     end
 
+    # rubocop:enaable Style/MultilineTernaryOperator
     # Configures a VM's provisioning
     #
     # @param [Vagrant::Config::V2::Root] machine Vagrant VM root config
