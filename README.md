@@ -59,7 +59,7 @@ This setup does not require a lot. Sure it does cost some CPU & memory, but
 to be honest, Google Chrome eats more memory these days.
 
 This setup is tested on MacOS but should work fine on Linux as well. Windows
-might work, but is not tested (please let us know!).
+10 has been tested and is still experimental (please see notes below).
 
 When following the installation instructions of the tools mentioned in the
 following chapter, please be sure to check the system requirements of each of
@@ -237,6 +237,14 @@ have a fresh start each time you start the virtual machine.
 
 However, if you are in the need to keep the configuration on the destruction of
 the virtual machine, you can simply set this option to `true`.
+
+## Notes for Windows Users
+
+Please ensure you run all vagrant commands from Powershell. The Vagrant up
+command will prompt you to install the NFS addon, this is highly recommended,
+you can continue using SMB but will likely encounter performance issues.
+This has only been tested using Windows 10 (1803), previous Windows versions
+may work, feedback is welcomed.
 
 ## Changelog & Releases
 
