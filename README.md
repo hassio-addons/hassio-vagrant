@@ -246,6 +246,10 @@ you can continue using SMB but will likely encounter performance issues.
 This has only been tested using Windows 10 (1803), previous Windows versions
 may work, feedback is welcomed.
 
+When using the NFS addon the winnfsd.exe process may not terminate on a halt
+command.  This should be killed manually (Task Manager or you preffered method)
+prior to issuing an Vagrant Up.
+
 ## Changelog & Releases
 
 This repository keeps a change log using [GitHub's releases][releases]
