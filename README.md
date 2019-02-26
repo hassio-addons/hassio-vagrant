@@ -247,7 +247,7 @@ This has only been tested using Windows 10 (1803), previous Windows versions
 may work, feedback is welcomed.
 
 When using the NFS addon the winnfsd.exe process may not terminate on a halt
-command.  This should be killed manually (Task Manager or you preffered method)
+command.  This should be killed manually (Task Manager or you preferred method)
 prior to issuing an Vagrant Up.
 
 ## Changelog & Releases
