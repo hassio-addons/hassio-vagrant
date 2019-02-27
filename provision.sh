@@ -63,13 +63,7 @@ install_requirements() {
 # ------------------------------------------------------------------------------
 configure_audio() {
     gpasswd --add vagrant audio
-    echo 'options snd-hda-intel model=generic index=0' \
-        >> /etc/modprobe.d/alsa-base.conf
-    echo 'snd' >> /etc/modules
-    echo 'snd-hda-intel' >> /etc/modules
-    modprobe snd
     modprobe snd-hda-intel
-    alsa force-reload || true
 }
 
 # ------------------------------------------------------------------------------
@@ -172,7 +166,7 @@ show_post_up_message() {
     echo ' Hass.io is installed & started! It may take a couple of minutes'
     echo ' before it is actually responding/available.'
     echo ''
-    echo ' Home Assitant is running on the following links:'
+    echo ' Home Assistant is running on the following links:'
     echo "  - http://${ip_private}:8123"
     echo "  - http://${ip_public}:8123"
     echo ''
