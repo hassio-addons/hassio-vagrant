@@ -139,10 +139,6 @@ module HassioCommunityAddons
         vbox.customize ['modifyvm', :id, '--natdnshostresolver1', 'on']
         vbox.customize ['modifyvm', :id, '--natdnsproxy1', 'on']
         vbox.customize ['modifyvm', :id, '--usb', 'on', '--usbehci', 'on']
-        soundtype = ::Vagrant::Util::Platform.windows? ? 'dsound' : 'coreaudio'
-        vbox.customize ['modifyvm', :id, '--audio', soundtype,
-                        '--audiocontroller', 'hda',
-                        '--audioin', 'on', '--audioout', 'on']
       end
     end
     # rubocop:enable Metrics/MethodLength
