@@ -14,20 +14,20 @@
 
 [![Buy me a coffee][buymeacoffee-shield]][buymeacoffee]
 
-This is a Vagrant box containing [Home Assistant][home-assistant]
+This Vagrant box contains [Home Assistant][home-assistant], which is
 based on Hass.io.
 
 ## About
 
 This Vagrant virtual machine allows you to test and play with Hass.io and
 Home Assistant, and is a great environment for add-on developers. A simple
-`vagrant up` command would give you a fully installed Hass.io system,
+`vagrant up` command gives you a fully-installed Hass.io system
 in a couple of minutes.
 
 ![Home Assistant](images/homeassistant.png)
 
 This setup comes preloaded with [netdata][] and [Portainer][portainer] to
-provide you, even more, insight into what is happing under the hood.
+provide you even more insight into what is happening under the hood of your VM.
 
 ### Portainer
 
@@ -35,16 +35,16 @@ Portainer is a lightweight Docker management UI which allows you to easily
 manage your Docker/Hass.io host.
 
 It allows add-on developers to look at the logs of their add-on, or even
-get a console into their running add-on to allow for easy debugging issues.
+get a console into their running add-on, to allow for easy debugging issues.
 
 ![Portainer](images/portainer.png)
 
 ### netdata
 
-netdata allow you to monitor your Docker containers (which Hass.io consists of).
+netdata allows you to monitor your Docker containers, which Hass.io is built on.
 Simple. Effective. Awesome!
 
-Unparalleled insights, in real-time, of everything happening on your systems,
+Unparalleled real-time insight into everything happening on your systems,
 applications and add-ons with stunning, interactive web dashboards and
 powerful performance and health alarms.
 
@@ -73,12 +73,12 @@ as well as [Vagrant][vagrant] 2.1.0 or higher. These software packages provide
 easy-to-use visual installers for all popular operating systems
 and are open source.
 
-Once [VirtualBox][virtualbox] and [Vagrant][vagrant] have been installed, you
+Once [VirtualBox][virtualbox] and [Vagrant][vagrant] have been installed,
 install `hassio-vagrant` by simply cloning this repository. Consider cloning
 the repository into a folder within your "home" directory.
 
 In case you are running this on a Linux system, you'll need to install `nfsd`.
-For example, Ubuntu: `sudo apt-get install nfs-common nfs-kernel-server`.
+For example, on Ubuntu: `sudo apt-get install nfs-common nfs-kernel-server`.
 
 Now the installation of this Vagrant machine:
 
@@ -102,7 +102,7 @@ cd hassio
 git checkout v1.2.0
 ````
 
-Once you have cloned the `hassio-vagrant` repository, you can use the following
+Once you have cloned the `hassio-vagrant` repository, use the following
 command to start Hass.io:
 
 ```bash
@@ -146,7 +146,7 @@ each time you run this virtual machine_
 
 ## Managing the virtual machine
 
-If you followed the above procedure, you have got Hass.io up and running.
+If you followed the above procedure, you have Hass.io up and running.
 But there may be a time where you need to shut it down, start up again or
 maybe start over again.
 
@@ -174,7 +174,7 @@ start command to create a fresh one.
 Note: _Please, be aware! Destroying the machine would make you lose your
 configuration of Home Assistant!_
 
-You can also use SSH into the virtual machine, giving you direct access
+You can also SSH into the virtual machine, giving you direct access
 to the Docker host:
 
 ```bash
@@ -183,7 +183,7 @@ vagrant ssh hassio
 
 ## Shared folders
 
-After starting the Hass.io virtual machine, some folders on your harddrive
+After starting the Hass.io virtual machine, some folders on your hard drive
 will be made available. These are shared folders with your Hass.io virtual
 machine. As files within these folders are changed, they will be kept in
 sync between your local machine and the Hass.io virtual environment.
@@ -219,12 +219,12 @@ The number of CPU cores to give to the virtual machine. Defaults to 2.
 ### `hostname`
 
 The hostname of the virtual Hass.io machine. Defaults to `hassio`. It might
-be wise to change this, in case you already have an Hass.io device in your
+be wise to change this, in case you already have a Hass.io device in your
 network.
 
 ### `bridge`
 
-Allows you the specific the network interface to bridge to. By default, this
+Allows you to define the specific network interface to bridge to. By default, this
 is set to `~`, which is the same as _nothing set_ and causes Vagrant
 to ask you for the network interface to use each time you start the virtual
 machine.
@@ -235,20 +235,20 @@ By default, if you destroy the virtual machine, the Home Assistant
 configuration is removed automatically as well. This is to ensure you
 have a fresh start each time you start the virtual machine.
 
-However, if you are in the need to keep the configuration on the destruction of
+However, if you need to keep the configuration on the destruction of
 the virtual machine, you can simply set this option to `true`.
 
 ## Notes for Windows Users
 
-Please ensure you run all vagrant commands from Powershell. The Vagrant up
-command will prompt you to install the NFS addon, this is highly recommended,
-you can continue using SMB but will likely encounter performance issues.
+Please ensure you run all vagrant commands from Powershell. The `Vagrant up`
+command will prompt you to install the NFS addon, which is highly recommended.
+You can continue using SMB, but will likely encounter performance issues.
 This has only been tested using Windows 10 (1803), previous Windows versions
 may work, feedback is welcomed.
 
-When using the NFS addon the winnfsd.exe process may not terminate on a halt
-command.  This should be killed manually (Task Manager or you preferred method)
-prior to issuing an Vagrant Up.
+When using the NFS addon, the winnfsd.exe process may not terminate on a halt
+command.  This should be killed manually (Task Manager or your preferred method)
+prior to issuing a `Vagrant Up`.
 
 ## Changelog & Releases
 
