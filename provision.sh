@@ -46,7 +46,7 @@ readonly APT_REQUIREMENTS=(
 # ------------------------------------------------------------------------------
 install_requirements() {
     apt-get update
-    apt-get install -y "${APT_REQUIREMENTS[@]}"
+    DEBIAN_FRONTEND=noninteractive apt-get install -y "${APT_REQUIREMENTS[@]}"
 }
 
 # ------------------------------------------------------------------------------
@@ -70,7 +70,7 @@ install_docker() {
         "deb [arch=amd64] ${DOCKER_DOWNLOAD}/${os} ${lsb_release} stable"
 
     apt-get update
-    apt-get install -y docker-ce
+    DEBIAN_FRONTEND=noninteractive apt-get install -y docker-ce
 
     usermod -aG docker ubuntu
 }
