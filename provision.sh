@@ -17,7 +17,6 @@ set -o pipefail # Return exit status of the last command in the pipe that failed
 readonly EX_OK=0
 readonly HASSIO_INSTALLER="https://raw.githubusercontent.com/home-assistant/hassio-installer/master/hassio_install.sh"
 readonly DOCKER_DOWNLOAD="https://download.docker.com/linux"
-readonly NETDATA_INSTALLER="https://my-netdata.io/kickstart-static64.sh"
 readonly APT_REQUIREMENTS=(
     apparmor-utils
     apt-transport-https
@@ -76,46 +75,6 @@ install_docker() {
 }
 
 # ------------------------------------------------------------------------------
-# Installs and starts netdata
-#
-# Arguments:
-#   None
-# Returns:
-#   None
-# ------------------------------------------------------------------------------
-install_netdata() {
-    curl -s "${NETDATA_INSTALLER}" > /tmp/kickstart-netdata.sh
-    bash /tmp/kickstart-netdata.sh --dont-wait
-    rm /tmp/kickstart-netdata.sh
-}
-
-# ------------------------------------------------------------------------------
-# Installs and starts Portainer
-#
-# Arguments:
-#   None
-# Returns:
-#   None
-# ------------------------------------------------------------------------------
-install_portainer() {
-    mkdir -p /usr/share/portainer
-
-    docker pull portainer/portainer:latest
-
-    docker create \
-        --name=portainer \
-        --restart=always \
-        -v /usr/share/portainer:/data \
-        -v /var/run/docker.sock:/var/run/docker.sock \
-        -p 9000:9000 \
-        portainer/portainer \
-        -H unix:///var/run/docker.sock \
-        --no-auth
-
-    docker start portainer
-}
-
-# ------------------------------------------------------------------------------
 # Installs and starts Hass.io
 #
 # Arguments:
@@ -152,14 +111,6 @@ show_post_up_message() {
     echo ' Home Assistant is running on the following links:'
     echo "  - http://${ip_private}:8123"
     echo "  - http://${ip_public}:8123"
-    echo ''
-    echo ' Portainer is running on the following links:'
-    echo "  - http://${ip_private}:9000"
-    echo "  - http://${ip_public}:9000"
-    echo ''
-    echo ' Netdata is providing awesome stats on these links:'
-    echo "  - http://${ip_private}:19999"
-    echo "  - http://${ip_public}:19999"
     echo '====================================================================='
 }
 
@@ -169,8 +120,6 @@ show_post_up_message() {
 main() {
     install_requirements
     install_docker
-    install_netdata
-    install_portainer
     install_hassio
     show_post_up_message
     exit "${EX_OK}"

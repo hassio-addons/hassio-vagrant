@@ -26,33 +26,6 @@ in a couple of minutes.
 
 ![Home Assistant](images/homeassistant.png)
 
-This setup comes preloaded with [netdata][] and [Portainer][portainer] to
-provide you even more insight into what is happening under the hood of your VM.
-
-### Portainer
-
-Portainer is a lightweight Docker management UI which allows you to easily
-manage your Docker/Hass.io host.
-
-It allows add-on developers to look at the logs of their add-on, or even
-get a console into their running add-on, to allow for easy debugging issues.
-
-![Portainer](images/portainer.png)
-
-### netdata
-
-netdata allows you to monitor your Docker containers, which Hass.io is built on.
-Simple. Effective. Awesome!
-
-Unparalleled real-time insight into everything happening on your systems,
-applications and add-ons with stunning, interactive web dashboards and
-powerful performance and health alarms.
-
-This gives add-on developers detailed information about the performance and
-resource usage of their add-ons.
-
-![netdata](images/netdata.png)
-
 ## System requirements
 
 This setup does not require a lot. Sure it does cost some CPU & memory, but
@@ -123,14 +96,6 @@ will appear on your screen:
 ==> hassio:  Home Assitant is running on the following links:
 ==> hassio:   - http://172.28.128.11:8123
 ==> hassio:   - http://192.168.1.2:8123
-==> hassio:
-==> hassio:  Portainer is running on the following links:
-==> hassio:   - http://172.28.128.11:9000
-==> hassio:   - http://192.168.1.2:9000
-==> hassio:
-==> hassio:  Netdata is providing awesome stats on these links:
-==> hassio:   - http://172.28.128.11:19999
-==> hassio:   - http://192.168.1.2:19999
 ==> hassio: =====================================================================
 ==> hassio:
 ==> hassio: Machine 'hassio' has a post `vagrant up` message. This is a message
@@ -346,8 +311,6 @@ SOFTWARE.
 [keepchangelog]: http://keepachangelog.com/en/1.0.0/
 [license-shield]: https://img.shields.io/github/license/hassio-addons/hassio-vagrant.svg
 [maintenance-shield]: https://img.shields.io/maintenance/yes/2018.svg
-[netdata]: https://my-netdata.io
-[portainer]: https://portainer.io
 [project-stage-shield]: https://img.shields.io/badge/project%20stage-production%20ready-brightgreen.svg
 [reddit]: https://reddit.com/r/homeassistant
 [releases-shield]: https://img.shields.io/github/release/hassio-addons/hassio-vagrant.svg
