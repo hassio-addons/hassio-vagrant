@@ -15,7 +15,7 @@ set -o pipefail # Return exit status of the last command in the pipe that failed
 # GLOBALS
 # ==============================================================================
 readonly EX_OK=0
-readonly HASSIO_INSTALLER="https://raw.githubusercontent.com/home-assistant/supervised-installer/master/installer.sh"
+readonly HASSIO_INSTALLER="https://raw.githubusercontent.com/home-assistant/supervised-installer/1f30d124ef7d0ee84b45d1772cb5c1e4a94c67b8/installer.sh"
 readonly DOCKER_DOWNLOAD="https://download.docker.com/linux"
 readonly APT_REQUIREMENTS=(
     apparmor-utils
