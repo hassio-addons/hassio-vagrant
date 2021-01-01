@@ -8,14 +8,25 @@
 ![Project Maintenance][maintenance-shield]
 [![GitHub Activity][commits-shield]][commits]
 
-[![Bountysource][bountysource-shield]][bountysource]
 [![Discord][discord-shield]][discord]
 [![Community Forum][forum-shield]][forum]
 
-[![Buy me a coffee][buymeacoffee-shield]][buymeacoffee]
-
 This Vagrant box contains [Home Assistant][home-assistant], which is
 based on Hass.io.
+
+## Deprecation notice
+
+This Vagrant box has been a great help for me (and many others) during the
+beginning of the Home Assistant add-ons journey. Nowadays, this solution
+isn't needed anymore.
+
+Add-ons can be developed more easy now, directly on a existing machine,
+and even in Visual Studio Remote Development containers.
+
+Therefore, the need to maintain this repository is not longer there (as I am
+not using it myself anymore either).
+
+This project has been archived for that reason and is no longer maintained.
 
 ## About
 
@@ -291,10 +302,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-[bountysource-shield]: https://img.shields.io/bountysource/team/hassio-addons/activity.svg
-[bountysource]: https://www.bountysource.com/teams/hassio-addons/issues
-[buymeacoffee-shield]: https://www.buymeacoffee.com/assets/img/guidelines/download-assets-sm-2.svg
-[buymeacoffee]: https://www.buymeacoffee.com/frenck
 [codeclimate-shield]: https://img.shields.io/badge/code%20climate-protected-brightgreen.svg
 [codeclimate]: https://codeclimate.com/github/hassio-addons/hassio-vagrant
 [commits-shield]: https://img.shields.io/github/commit-activity/y/hassio-addons/addon-ssh.svg
